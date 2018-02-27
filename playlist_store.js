@@ -5,12 +5,15 @@ function init() {
 }
 
 function save(item) {
+  console.log('save function called');
   var playlistArray = getStoreArray("playlist");
   playlistArray.push(item);
   localStorage.setItem("playlist", JSON.stringify(playlistArray));
+  console.log(playlistArray);
 }
 
 function loadPlaylist() {
+  console.log('loadPlaylistCalled');
   var playlistArray = getSavedSongs();
   var ul = document.getElementById("playlist");
   
@@ -21,13 +24,16 @@ function loadPlaylist() {
       ul.appendChile(li);
     }
   }
+  console.log('playlist loaded');
 }
 
 function getSavedSongs() {
+  console.log('getSavedSongs called');
   return getStoreArray("playlist");
 }
 
 function getStoreArray(key) {
+  console.log('getStore Array Called');
   var playlistArray = localStorage.getItem(key);
   if (playlistArray === null || playlistArray === "") {
     playlistArray = [];
