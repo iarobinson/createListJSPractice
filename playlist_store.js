@@ -7,7 +7,6 @@ function init() {
 }
 
 function handleButtonClick() {
-  console.log('handlebuttonclicked')
   var textInput = document.getElementById('songTextInput');
   var songName = textInput.value;
   var li = document.createElement('li');
@@ -21,7 +20,6 @@ function save(item) {
   var playlistArray = getStoreArray("playlist");
   playlistArray.push(item);
   localStorage.setItem("playlist", JSON.stringify(playlistArray));
-  console.log(playlistArray, "<-playlist array in save()");
 }
 
 function loadPlaylist() {
@@ -35,7 +33,6 @@ function loadPlaylist() {
       ul.appendChild(li);
     }
   }
-  console.log('playlist loaded');
 }
 
 function getSavedSongs() {
@@ -50,6 +47,5 @@ function getStoreArray(key) {
     playlistArray = JSON.parse(playlistArray);
   }
   
-  console.log(playlistArray, "<- getStoreArray() called this is playlistArray");
   return playlistArray;
 }
